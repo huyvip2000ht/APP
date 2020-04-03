@@ -1,24 +1,27 @@
 {
-  "name": "app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NguyenThaiTiep/APP.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NguyenThaiTiep/APP/issues"
-  },
-  "homepage": "https://github.com/NguyenThaiTiep/APP#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "lowdb": "^1.0.0",
-    "nodemon": "^2.0.2"
-  }
+    "name": "app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon app",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/NguyenThaiTiep/APP.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/NguyenThaiTiep/APP/issues"
+    },
+    "homepage": "https://github.com/NguyenThaiTiep/APP#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "lowdb": "^1.0.0",
+        "nodemon": "^2.0.2",
+        "pug": "^2.0.4",
+        "short-id": "0.1.0-1"
+    }
 }
