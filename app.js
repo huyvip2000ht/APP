@@ -15,7 +15,7 @@ app.set(express.static('public'))
 app.use('/users', userRoute)
 
 app.get('/', function(request, response) {
-    response.render('index');
+    response.render('Home');
 })
 
 app.listen(port, function() {
