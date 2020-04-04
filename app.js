@@ -13,6 +13,7 @@ app.set(express.static('public'))
 
 
 app.use('/users', userRoute)
+app.use('/public', express.static('./public'))
 
 app.get('/', function(request, response) {
     response.render('Home');
