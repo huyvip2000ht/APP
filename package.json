@@ -18,6 +18,7 @@
     },
     "homepage": "https://github.com/NguyenThaiTiep/APP#readme",
     "dependencies": {
+        "bootstrap": "^4.4.1",
         "express": "^4.17.1",
         "lowdb": "^1.0.0",
         "nodemon": "^2.0.2",
