@@ -1,1 +1,19 @@
-sdsfsfsf
+{
+    "user": [
+
+    ],
+    "question": [{
+            "price": 10,
+            "number": [2, 3, 8]
+        },
+        {
+            "price": 10,
+            "number": [6, 4, 8]
+        },
+        {
+            "price": 10,
+            "number": [4, 5, 5]
+        }
+    ]
+
+}
