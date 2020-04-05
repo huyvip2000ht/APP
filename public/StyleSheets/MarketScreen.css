@@ -1,0 +1,185 @@
+body {
+    background-image: url("./../../public/image/Game-2/board.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+/* set up to coin */
+
+.coin {
+    background-image: url("./../../public//image//Game-2/number.png");
+    border-radius: 200px;
+    background-repeat: no-repeat;
+    z-index: 10;
+    position: relative;
+}
+
+.coin-1 {
+    width: 62px;
+    height: 62px;
+    background-position: -1013px 0;
+}
+
+.coin-2 {
+    width: 66px;
+    height: 66px;
+    background-position: -902px 0;
+}
+
+.coin-3 {
+    width: 75px;
+    height: 75px;
+    background-position: -786px 0;
+}
+
+.coin-4 {
+    width: 80px;
+    height: 80px;
+    background-position: -675px 0;
+}
+
+.coin-5 {
+    width: 85px;
+    height: 85px;
+    background-position: -563px 0;
+}
+
+.coin-6 {
+    width: 90px;
+    height: 90px;
+    background-position: -449px 0;
+}
+
+.coin-7 {
+    width: 95px;
+    height: 95px;
+    background-position: -337px 0;
+}
+
+.coin-8 {
+    width: 100px;
+    height: 100px;
+    background-position: -225px 0;
+}
+
+.coin-9 {
+    width: 105px;
+    height: 105px;
+    background-position: -112px 0;
+}
+
+
+/* scene  */
+
+.card-header {
+    width: 100%;
+    height: 8%;
+    border: solid red 1px;
+}
+
+.task {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 10%;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.scene {
+    width: 100%;
+    height: 100%;
+    border: solid 1px green;
+}
+
+.drop {
+    width: 330px;
+    height: 430px;
+    position: absolute;
+    z-index: 1;
+    top: 165px;
+    left: 50%;
+}
+
+.drop-bg {
+    background-image: url('./../../public/image/Game-2/drop-bg.png');
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 25px;
+}
+
+.drop-frame {
+    background-image: url('./../../public/image/Game-2/drop-frame.png');
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.button {
+    background-image: url('./../../public/image/Game-2/button.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 31.5%;
+    z-index: 4;
+    width: 122px;
+    bottom: 22px;
+    font-size: 32px;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.paid-frame {
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 85px;
+    width: 100%;
+    height: 300px;
+    z-index: 1;
+}
+
+.paid {
+    display: none;
+    background-image: url("./../../public/image/Game-2/paid.png");
+    width: 85%;
+    height: 95%;
+    position: absolute;
+    background-repeat: no-repeat;
+    margin-left: 28px;
+}
+
+#paid {
+    position: absolute;
+    top: 40%;
+    font-size: 30px;
+    left: 40%;
+}
+
+.button-active {
+    height: 52px;
+    background-position: 0 0;
+}
+
+.buy {
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.slot {
+    position: absolute;
+    z-index: 1;
+    width: 0;
+    height: 0;
+}
