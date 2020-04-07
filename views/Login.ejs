@@ -1,9 +1,23 @@
 <!DOCTYPE html>
-
-<head>
-    <title> Name</title>
-</head>
+<html>
 
 <body>
-    abc
+
+    <p>Click the button to return the value of its value attribute.</p>
+
+    <button id="myBtn" value="1" onclick="myFunction()">Try it</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myBtn").value;
+            var a = parseInt(x) + 1;
+            document.getElementById("myBtn").value = a;
+            document.getElementById("demo").innerHTML = a;
+        }
+    </script>
+
 </body>
+
+</html>
