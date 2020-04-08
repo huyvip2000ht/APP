@@ -10,7 +10,7 @@ var lesson = [
 
 router.get('/MarketScreen', function(request, response) {
     response.render('Screen/MarketScreen', {
-        questions: { id: "1", question: [1, 2, 8, 5, 6], product: "cream" }
+        questions: { id: "1", question: [1, 2, 8, 5, 6], product: "Ice-Cream" }
     });
 })
 

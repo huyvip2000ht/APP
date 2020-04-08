@@ -10,22 +10,27 @@
 
 <body onload="loadDb()">
     <div class="card-header"></div>
+    <div class="task-score" id="task-score">
+        <!-- To do by js file -->
+        <div class="task-1" id="task-1"></div>
+        <div class="task-2" id="task-2"></div>
+        <div class="task-3" id="task-3"></div>
+        <div class="task-4" id="task-4"></div>
+        <div class="task-5" id="task-5"></div>
+    </div>
     <div class="scene">
         <div class="task">
             Buy
             <span> the <%= questions.product%></span>
         </div>
         <div class="row">
-            <div class="drop-coin" style="border : solid red 1px" id="drop-coin">
-                <% questions.question.forEach(function(posts){ %>
-                    <div class=" coin coin-<%= posts %> " id="<%= posts %>" style="left: 50px; top: 50px; touch-action : pan-y"></div>
-                    <% }) %>
+            <div class="drop-coin" id="drop-coin" style="border : solid red 1px" id="drop-coin">
             </div>
             <div class="drop " id="drop" style="border : solid red 1px">
                 <div class="drop-bg" id="drop-bg"></div>
                 <div class="drop-frame" id="drop-frame">
-                    <div class="paid">
-                        <span id="paid"> paid</span>
+                    <div class="paid" id="paid">
+                        <span class="textPaid"> paid</span>
                     </div>
                 </div>
                 <div class="slot empty" style="top : 300px; left: 76px " )></div>
@@ -34,21 +39,20 @@
                 <div class="slot empty" style="top : 191px; left: 77px " )></div>
                 <div class="slot empty" style="top : 191px; left: 256px " )></div>
                 <div class="slot empty" style="top : 140px; left: 166px " )></div>
-                <div class="button button-active abc" onclick="ButtonClick()" id="myBtn" style="border-radius: 20px;opacity: 100%;">
+                <div class="button button-active" id="myBtn" style="border-radius: 20px;opacity: 100%;">
                     <div class="buy">Buy</div>
                 </div>
 
             </div>
-            <div class="product" style="border : solid red 1px">
+            <div class="product" id="product" style="border : solid red 1px">
                 <div class="price" style=" position: absolute;left: 150px;top: 300px;border-radius: 50%;width: 150px; height: 150px; background-color: rebeccapurple; text-align: center;z-index: 10;">
                     <div style="padding-top: 40px ; font-size: 35px; font-family: Arial, Helvetica, sans-serif;color: white;">Price
                         <br> 10
                     </div>
-
                 </div>
-                <img src="./../../public/image/Game-2/<%=questions.product%>.png" draggable="false" style="position: absolute;left: 200px;top: 50px;" alt="<%=questions.product%>">
 
             </div>
+
         </div>
 
 
