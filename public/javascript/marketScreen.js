@@ -2,20 +2,22 @@ var box_coin = [];
 var coins = [
     [1, 2, 5, 6, 8, 9, 3, 4, 7],
     [6, 8, 9, 3, 4, 7],
-    [1, 2, 5, 6, 8, 9, 3, 4, 7]
+    [1, 9, 8, 7, 5, 2],
+    [1, 3, 5, 6, 2],
+    [1, 4, 5, 6, 7, 8]
 ];
 var part = 0;
-var products = ["lollipop", "Ice-Cream", "lollipop"];
+var products = ["lollipop", "Ice-Cream", "lollipop", "Ice-Cream", "lollipop"];
 var position_coinInBox = [
-    { left: 30, top: 240 },
-    { left: 260, top: 240 },
-    { left: 30, top: 420 },
-    { left: 130, top: 240 },
-    { left: 130, top: 320 },
-    { left: 130, top: 420 },
-    { left: 30, top: 320 },
-    { left: 230, top: 320 },
-    { left: 230, top: 420 }
+    { left: 30, top: 270 },
+    { left: 260, top: 270 },
+    { left: 30, top: 450 },
+    { left: 130, top: 270 },
+    { left: 130, top: 350 },
+    { left: 130, top: 450 },
+    { left: 30, top: 350 },
+    { left: 230, top: 350 },
+    { left: 230, top: 450 }
 ]
 var position_coin = [
     { top: 400, left: 200 },
@@ -58,6 +60,9 @@ function loadProduct() {
     tag.style.left = "200px";
     tag.style.top = "50px";
     product.appendChild(tag);
+
+    var productNameTag = document.getElementById("nameProduct");
+    productNameTag.innerHTML = products[part];
 }
 
 /* Set up drag and drop coin*/
@@ -123,12 +128,10 @@ function SetupDragCoin() {
         var frame = document.getElementById("drop");
         if (left >= frame.offsetLeft && left <= frame.offsetWidth + frame.offsetLeft &&
             top >= frame.offsetTop && top <= frame.offsetTop + frame.offsetHeight) {
-            frame.style.border = "solid 1px red";
             document.getElementById("drop-bg").style.backgroundColor = "red";
             document.getElementById("drop-bg").style.opacity = "0.5";
 
         } else {
-            frame.style.border = "solid 1px green";
             document.getElementById("drop-bg").style.backgroundColor = "";
             document.getElementById("drop-bg").style.opacity = "100%"
         }
@@ -159,6 +162,7 @@ function SetUpButtonEvent() {
             case 200:
                 tag.style.backgroundPosition = "0 -177px";
                 showPaid();
+                moveBoxDrop();
                 nextGame();
 
                 break;
@@ -282,6 +286,8 @@ function nextGame() {
     box_coin = [];
     // part 
     part++;
+    if (part >= products.length) part = 0;
+
     window.setTimeout(loadDb, 1000);
     // loadDb();
 }
@@ -298,4 +304,38 @@ function show() {
 
 function hidden() {
     document.getElementById("paid").style.opacity = "0%";
+}
+// Animation when next Game
+
+function animationWhenWin(elem, top) {
+    var pos_top = elem.offsetTop;
+    var pre_top = pos_top;
+    var value_top = 5;
+    var id = setInterval(frame, 1);
+
+    function frame() {
+        if (pos_top == top) {
+            elem.style.top = 0 + "px";
+
+            clearInterval(id);
+        } else {
+            if (pos_top < top) {
+                pos_top += value_top;
+            }
+            if (pos_top > top) {
+                pos_top -= value_top;
+            }
+            if (pos_top > top - value_top && pos_top < top + value_top) pos_top = top;
+            elem.style.top = pos_top + "px";
+        }
+    }
+
+}
+
+
+
+function moveBoxDrop() {
+    var drop = document.getElementById('drop');
+    animationWhenWin(drop, 600);
+
 }
