@@ -310,7 +310,7 @@ function hidden() {
 function animationWhenWin(elem, top) {
     var pos_top = elem.offsetTop;
     var pre_top = pos_top;
-    var value_top = 5;
+    var value_top = 3;
     var id = setInterval(frame, 1);
 
     function frame() {
