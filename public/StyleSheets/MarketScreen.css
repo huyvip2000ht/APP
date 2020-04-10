@@ -334,3 +334,35 @@ body {
     border-right: black solid 1px;
     transition: background-color 1s;
 }
+
+.task-6 {
+    width: 19.5%;
+    height: 10px;
+    float: left;
+    border-right: black solid 1px;
+    transition: background-color 1s;
+}
+
+.task-7 {
+    width: 19.5%;
+    height: 10px;
+    float: left;
+    border-right: black solid 1px;
+    transition: background-color 1s;
+}
+
+.task-8 {
+    width: 19.5%;
+    height: 10px;
+    float: left;
+    border-right: black solid 1px;
+    transition: background-color 1s;
+}
+
+.task-9 {
+    width: 19.5%;
+    height: 10px;
+    float: left;
+    border-right: black solid 1px;
+    transition: background-color 1s;
+}

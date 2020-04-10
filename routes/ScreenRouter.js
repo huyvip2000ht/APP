@@ -13,5 +13,8 @@ router.get('/MarketScreen', function(request, response) {
         questions: { id: "1", question: [1, 2, 8, 5, 6], product: "Ice-Cream" }
     });
 })
+router.get('/UFOScreen', function(request, response) {
+    response.render('Screen/UFOScreen');
+})
 
 module.exports = router;
