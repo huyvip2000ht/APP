@@ -1,13 +1,17 @@
 var box_coin = [];
 var coins = [
-    [1, 2, 5, 6, 8, 9, 3, 4, 7],
+    [1, 2, 5, 6, 8, 9, 3, 4],
     [6, 8, 9, 3, 4, 7],
     [1, 9, 8, 7, 5, 2],
     [1, 3, 5, 6, 2],
-    [1, 4, 5, 6, 7, 8]
+    [1, 2, 5, 6, 4, 3],
+    [6, 2, 1, 3, 4, 7],
+    [1, 2, 3, 7, 5, 9],
+    [1, 3, 7, 6, 2],
+    [1, 4, 5, 6, 9, 2]
 ];
 var part = 0;
-var products = ["lollipop", "Ice-Cream", "lollipop", "Ice-Cream", "lollipop"];
+var products = ["lollipop", "Ice-Cream", "lollipop", "Ice-Cream", "lollipop", "Ice-Cream", "lollipop", "Ice-Cream", "lollipop"];
 var position_coinInBox = [
     { left: 30, top: 270 },
     { left: 260, top: 270 },
@@ -112,7 +116,8 @@ function SetupDragCoin() {
             // set the element's new position:
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
             elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-            dragCoinToBgFrame(elmnt.offsetLeft, elmnt.offsetTop)
+            dragCoinToBgFrame(elmnt.offsetLeft, elmnt.offsetTop);
+            elmnt.style.zIndex = "10";
         }
 
         function closeDragElement() {
@@ -121,6 +126,7 @@ function SetupDragCoin() {
             document.onmousemove = null;
             addCoinIntoFrameBox(elmnt.offsetLeft, elmnt.offsetTop, id);
             setSlotForCoin(elmnt, elmnt.offsetTop, elmnt.offsetLeft, top_elm, left_elm, id);
+            elmnt.style.zIndex = "1";
         }
     }
 
@@ -310,7 +316,7 @@ function hidden() {
 function animationWhenWin(elem, top) {
     var pos_top = elem.offsetTop;
     var pre_top = pos_top;
-    var value_top = 5;
+    var value_top = 3;
     var id = setInterval(frame, 1);
 
     function frame() {

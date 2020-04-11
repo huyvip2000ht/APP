@@ -92,17 +92,51 @@ body {
 
 .card-header {
     width: 100%;
-    height: 60px;
-    border: solid red 1px;
+    height: 50px;
+}
+
+.header-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.point-back {
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid blue;
+    border-left: 2px solid blue;
+    transform: rotate(-45deg);
+    display: inline-block;
+}
+
+.back-button {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 20px;
+    /* border: red solid 1px; */
+}
+
+.back-link {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    color: red;
 }
 
 .task {
     font-family: Arial, Helvetica, sans-serif;
     height: 10%;
-    font-size: 50px;
+    font-size: 70px;
     font-weight: bold;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 .scene {
@@ -241,54 +275,94 @@ body {
     z-index: 2;
 }
 
+.taskScore-frame {
+    width: 99%;
+    height: 10px;
+    position: absolute;
+    background-color: black;
+    opacity: 0.1;
+}
+
 .task-score {
     width: 99%;
     height: 10px;
     position: absolute;
-    border: solid aqua 1px;
+    opacity: 1;
 }
 
 .task-1 {
-    width: 19%;
+    width: 19.5%;
     height: 10px;
     float: left;
     margin-left: 10px;
-    border-right: blue solid 3px;
+    border-right: black solid 1px;
     border-left: green solid 5px;
     transition: background-color 1s;
 }
 
 .task-2 {
-    width: 19%;
+    width: 19.5%;
     height: 10px;
     float: left;
-    border-right: blue solid 3px;
+    border-right: black solid 1px;
     transition: width 2s;
     transition: background-color 1s;
 }
 
 .task-3 {
-    width: 19%;
+    width: 19.5%;
     height: 10px;
     float: left;
-    border-right: blue solid 3px;
+    border-right: black solid 1px;
     transition: width 2s;
     transition: background-color 1s;
 }
 
 .task-4 {
-    width: 19%;
+    width: 19.5%;
     height: 10px;
     float: left;
-    border-right: blue solid 3px;
+    border-right: black solid 1px;
     transition: width 2s;
     transition: background-color 1s;
 }
 
 .task-5 {
-    width: 19%;
+    width: 19.5%;
     height: 10px;
     float: left;
-    border-right: red solid 3px;
+    border-right: black solid 1px;
+    transition: background-color 1s;
+}
+
+.task-6 {
+    width: 19.5%;
+    height: 10px;
+    float: left;
+    border-right: black solid 1px;
+    transition: background-color 1s;
+}
+
+.task-7 {
+    width: 19.5%;
+    height: 10px;
+    float: left;
+    border-right: black solid 1px;
+    transition: background-color 1s;
+}
+
+.task-8 {
+    width: 19.5%;
+    height: 10px;
+    float: left;
+    border-right: black solid 1px;
+    transition: background-color 1s;
+}
+
+.task-9 {
+    width: 19.5%;
+    height: 10px;
+    float: left;
+    border-right: black solid 1px;
     transition: background-color 1s;
 }
