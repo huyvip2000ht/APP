@@ -5,9 +5,42 @@ body {
 .card-header {
     width: 98%;
     height: 50px;
-    border: solid 1px red;
     position: absolute;
     margin-left: 1%;
+}
+
+.header-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.point-back {
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid blue;
+    border-left: 2px solid blue;
+    transform: rotate(-45deg);
+    display: inline-block;
+}
+
+.back-button {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 20px;
+    /* border: red solid 1px; */
+}
+
+.back-link {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    color: red;
 }
 
 .screen {
@@ -53,14 +86,7 @@ body {
     }
 }
 
-@keyframes StaticUFO {
-    0% {
-        top: 30px;
-    }
-    100% {
-        top: 30px;
-    }
-}
+@keyframes StaticUFO {}
 
 .ray {
     background-image: url('./../../public/image/Game-1//ray.png');
@@ -101,7 +127,6 @@ body {
     position: absolute;
     left: 400px;
     bottom: 80px;
-    border: solid red 1px;
 }
 
 
@@ -160,7 +185,7 @@ body {
 }
 
 .Calculation {
-    background-color: #43c6d1;
+    background-color: aqua;
     height: 85px;
     position: absolute;
     font-family: Cambria;
@@ -184,7 +209,7 @@ body {
     }
     100% {
         top: -100px;
-        left: 350px;
+        left: 370px;
         width: 0px;
         height: 0px;
         font-size: 00px;
@@ -193,4 +218,72 @@ body {
         border: yellow 1px solid;
         letter-spacing: 0px;
     }
+}
+
+.task-score-tag {
+    width: 1550px;
+    top: 50px;
+    height: 10px;
+    position: absolute;
+    z-index: 10;
+}
+
+.task-score-frame {
+    width: 99%;
+    height: 10px;
+    position: absolute;
+    background-color: black;
+    opacity: 0.1;
+}
+
+.task-score {
+    width: 99%;
+    height: 10px;
+    position: absolute;
+    opacity: 1;
+}
+
+.task-1 {
+    width: 19.5%;
+    height: 10px;
+    float: left;
+    margin-left: 10px;
+    border-right: black solid 1px;
+    border-left: green solid 5px;
+    transition: background-color 1s;
+}
+
+.task-2 {
+    width: 19.5%;
+    height: 10px;
+    float: left;
+    border-right: black solid 1px;
+    transition: width 2s;
+    transition: background-color 1s;
+}
+
+.task-3 {
+    width: 19.5%;
+    height: 10px;
+    float: left;
+    border-right: black solid 1px;
+    transition: width 2s;
+    transition: background-color 1s;
+}
+
+.task-4 {
+    width: 19.5%;
+    height: 10px;
+    float: left;
+    border-right: black solid 1px;
+    transition: width 2s;
+    transition: background-color 1s;
+}
+
+.task-5 {
+    width: 19.5%;
+    height: 10px;
+    float: left;
+    border-right: black solid 1px;
+    transition: background-color 1s;
 }
