@@ -1,39 +1,33 @@
+// const db = require('./../../Database/database')
+// var GameDataBase = db.get("Game").find({ id: 1 }).value();
+// var GameData = GameDataBase.GameData;
 var box_coin = [];
-var coins = [
-    [1, 2, 5, 6, 8, 9, 3, 4],
-    [6, 8, 9, 3, 4, 7],
-    [1, 9, 8, 7, 5, 2],
-    [1, 3, 5, 6, 2],
-    [1, 2, 5, 6, 4, 3],
-    [6, 2, 1, 3, 4, 7],
-    [1, 2, 3, 7, 5, 9],
-    [1, 3, 7, 6, 2],
-    [1, 4, 5, 6, 9, 2]
-];
 var part = 0;
-var products = ["lollipop", "Ice-Cream", "lollipop", "Ice-Cream", "lollipop", "Ice-Cream", "lollipop", "Ice-Cream", "lollipop"];
-var position_coinInBox = [
-    { left: 30, top: 270 },
-    { left: 260, top: 270 },
-    { left: 30, top: 450 },
-    { left: 130, top: 270 },
-    { left: 130, top: 350 },
-    { left: 130, top: 450 },
-    { left: 30, top: 350 },
-    { left: 230, top: 350 },
-    { left: 230, top: 450 }
-]
-var position_coin = [
-    { top: 400, left: 200 },
-    { top: 300, left: 200 },
-    { top: 400, left: 300 },
-    { top: 400, left: 100 },
-    { top: 300, left: 100 },
-    { top: 200, left: 200 },
-    { top: 200, left: 300 },
-    { top: 300, left: 300 },
-    { top: 200, left: 100 }
-]
+var position_coinInBox = [{ left: 30, top: 270 }, { left: 260, top: 270 }, { left: 30, top: 450 }, { left: 130, top: 270 }, { left: 130, top: 350 }, { left: 130, top: 440 }, { left: 30, top: 350 }, { left: 230, top: 350 }, { left: 230, top: 450 }]
+
+var GameData = [{
+            coins: [{ number: 1, left: 30, top: 270 }, { product: "Ice-Cream", number: 2, left: 260, top: 270 }, { number: 5, left: 30, top: 450 },
+                { number: 6, left: 130, top: 270 }, { number: 8, left: 130, top: 350 }, { number: 9, left: 130, top: 450 },
+                { number: 3, left: 230, top: 450 }, { number: 4, left: 30, top: 350 }
+            ],
+            product: "lollipop"
+        },
+        {
+            coins: [{ number: 1, left: 30, top: 270 }, { product: "Ice-Cream", number: 2, left: 260, top: 270 }, { number: 5, left: 30, top: 450 },
+                { number: 6, left: 130, top: 270 }, { number: 8, left: 130, top: 350 }, { number: 9, left: 130, top: 450 },
+                { number: 3, left: 230, top: 450 }, { number: 4, left: 30, top: 350 }
+            ],
+            product: "Ice-Cream"
+        }
+    ]
+    // var GameData = [];
+var coin = []
+var productName
+
+function loadGame() {
+    loadData();
+    loadDb();
+}
 
 function loadDb() {
     loadCoin();
@@ -42,14 +36,21 @@ function loadDb() {
     SetUpButtonEvent();
 }
 /* Load Coin when you join game or next game*/
+function loadData() {
+    // GameData = Data;
+    coin = GameData[part].coins;
+    productName = GameData[part].product;
+}
+
 function loadCoin() {
     var parents = document.getElementById("drop-coin");
-    coin = coins[part];
+
     for (var i = 0; i < coin.length; i++) {
         var tag = document.createElement("div");
-        tag.classList.add("coin");
-        tag.classList.add("coin-" + coin[i]);
-        tag.id = coin[i];
+        tag.classList.add("coin", "coin-" + coin[i].number);
+        tag.id = i + 1;
+        tag.style.top = coin[i].top + "px";
+        tag.style.left = coin[i].left + "px";
         parents.appendChild(tag);
     }
 }
@@ -57,16 +58,14 @@ function loadCoin() {
 function loadProduct() {
     var product = document.getElementById("product");
     var tag = document.createElement("img");
-    tag.src = "./../../public/image/Game-2/" + products[part] + ".png";
+    tag.src = "./../../public/image/Game-2/" + productName + ".png";
     tag.id = "thing";
     tag.draggable = false;
-    tag.style.position = "absolute";
-    tag.style.left = "200px";
-    tag.style.top = "50px";
+    tag.className = "product-img"
     product.appendChild(tag);
 
     var productNameTag = document.getElementById("nameProduct");
-    productNameTag.innerHTML = products[part];
+    productNameTag.innerHTML = productName;
 }
 
 /* Set up drag and drop coin*/
@@ -89,7 +88,6 @@ function SetupDragCoin() {
         var id = parseInt(id_str);
         var top_elm = tag.offsetTop;
         var left_elm = tag.offsetLeft;
-        console.log(top_elm, left_elm);
 
         /* otherwise, move the DIV from anywhere inside the DIV:*/
         elmnt.onmousedown = dragMouseDown;
@@ -117,7 +115,7 @@ function SetupDragCoin() {
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
             elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
             dragCoinToBgFrame(elmnt.offsetLeft, elmnt.offsetTop);
-            elmnt.style.zIndex = "10";
+            elmnt.style.zIndex = '10';
         }
 
         function closeDragElement() {
@@ -126,7 +124,7 @@ function SetupDragCoin() {
             document.onmousemove = null;
             addCoinIntoFrameBox(elmnt.offsetLeft, elmnt.offsetTop, id);
             setSlotForCoin(elmnt, elmnt.offsetTop, elmnt.offsetLeft, top_elm, left_elm, id);
-            elmnt.style.zIndex = "1";
+            elmnt.style.zIndex = '8';
         }
     }
 
@@ -136,11 +134,44 @@ function SetupDragCoin() {
             top >= frame.offsetTop && top <= frame.offsetTop + frame.offsetHeight) {
             document.getElementById("drop-bg").style.backgroundColor = "red";
             document.getElementById("drop-bg").style.opacity = "0.5";
-
         } else {
             document.getElementById("drop-bg").style.backgroundColor = "";
             document.getElementById("drop-bg").style.opacity = "100%"
         }
+    }
+}
+
+function addCoinIntoFrameBox(left, top, id) {
+    var frame = document.getElementById("drop");
+    var value = coin[id - 1].number;
+    if (checkCollision(top, left, frame)) {
+        if (box_coin == null) box_coin.push(id);
+        else {
+            var found = box_coin.findIndex(function(number) {
+                return number == value;
+            });
+            if (found == -1) {
+                box_coin.push(value);
+            }
+        }
+    } else {
+        var found = box_coin.findIndex(function(number) {
+            return number == value;
+        });
+        if (found != -1) {
+            box_coin.splice(found, 1);
+        }
+    }
+    console.log("box" + box_coin)
+}
+
+function setSlotForCoin(element, top, left, top_elm, left_elm, id) {
+    var frame = document.getElementById("drop");
+    var value = coin[id - 1].number - 1;
+    if (checkCollision(top, left, frame)) {
+        myMove(element, position_coinInBox[value].top, position_coinInBox[value].left + frame.offsetLeft);
+    } else {
+        myMove(element, top_elm, left_elm);
     }
 }
 
@@ -157,9 +188,8 @@ function SetUpButtonEvent() {
         var result = 10;
         var sum = sumBoxCoin();
         var flag;
-        if (box_coin.length == 0) flag = 404;
+        if (box_coin.length == 0 || (sum != result && sum != 0)) flag = 404;
         if (sum == result) flag = 200;
-        if (sum != result && sum != 0) flag = 404;
         switch (flag) {
             case 404:
                 tag.style.backgroundPosition = "0 -118px";
@@ -167,10 +197,10 @@ function SetUpButtonEvent() {
                 break;
             case 200:
                 tag.style.backgroundPosition = "0 -177px";
-                showPaid();
-                moveBoxDrop();
-                nextGame();
-
+                document.getElementById("paid").style.opacity = "80%";
+                window.setTimeout(moveBoxDrop, 2000);
+                window.setTimeout(nextGame, 2500);
+                RemoveDataTurnGame();
                 break;
             default:
         }
@@ -179,7 +209,6 @@ function SetUpButtonEvent() {
     function ButtonOnMouseUp() {
         var tag = document.getElementById("myBtn");
         tag.style.backgroundPosition = "0 0";
-
     }
 
     function ButtonOnOver() {
@@ -188,31 +217,6 @@ function SetUpButtonEvent() {
     }
 }
 /* Add coin to Frame box when coin Drop to Frame Box */
-function addCoinIntoFrameBox(left, top, id) {
-    var frame = document.getElementById("drop");
-    if (left >= frame.offsetLeft && left <= frame.offsetWidth + frame.offsetLeft &&
-        top >= frame.offsetTop && top <= frame.offsetTop + frame.offsetHeight) {
-        if (box_coin == null) box_coin.push(id);
-        else {
-            var found = box_coin.findIndex(function(number) {
-                return number == id;
-            });
-            if (found == -1) {
-                box_coin.push(id);
-            }
-        }
-    } else {
-        var found = box_coin.findIndex(function(number) {
-            return number == id;
-        });
-        if (found != -1) {
-            box_coin.splice(found, 1);
-        }
-    }
-    // alert(box_coin);
-    console.log("box" + box_coin)
-}
-
 
 /* setup Move coin */
 function myMove(elem, top, left) {
@@ -248,26 +252,15 @@ function myMove(elem, top, left) {
 
 function MoveFirstPosition() {
     for (var i = 0; i < box_coin.length; i++) {
-        var id = box_coin[i];
-        var tag = document.getElementById(id.toString());
-        myMove(tag, position_coin[id - 1].top, position_coin[id - 1].left);
+        var value = box_coin[i];
+        var found = coin.findIndex(function(obj) { return obj.number == value; });
+        var tag = document.getElementById(found + 1)
+        myMove(tag, coin[found].top, coin[found].left);
     }
     box_coin = []
 }
 
-function setSlotForCoin(element, top, left, top_elm, left_elm, id) {
-    var frame = document.getElementById("drop");
-
-    if (left >= frame.offsetLeft && left <= frame.offsetWidth + frame.offsetLeft &&
-        top >= frame.offsetTop && top <= frame.offsetTop + frame.offsetHeight) {
-        myMove(element, position_coinInBox[id - 1].top, position_coinInBox[id - 1].left + frame.offsetLeft);
-    } else {
-        myMove(element, top_elm, left_elm);
-    }
-}
-
 /* check Result*/
-
 function sumBoxCoin() {
     var sum = 0;
     box_coin.forEach(element =>
@@ -277,71 +270,52 @@ function sumBoxCoin() {
 }
 /* Set up next Game when you win */
 function nextGame() {
-    //reload coin
-    var tag = document.getElementById("drop-coin")
-    tag.innerHTML = ""
-        // reload product
-    var product = document.getElementById("product");
-    var thing = document.getElementById("thing");
-    product.removeChild(thing)
-        //paid display
-        // task-scrore
-    var task = document.getElementById("task-" + (part + 1));
-    task.style.backgroundColor = "green";
-    // reser box coin 
-    box_coin = [];
-    // part 
-    part++;
-    if (part >= products.length) part = 0;
-
-    window.setTimeout(loadDb, 1000);
-    // loadDb();
-}
-
-function showPaid() {
-    show();
-    window.setTimeout(hidden, 1000);
-
-}
-
-function show() {
-    document.getElementById("paid").style.opacity = "80%";
-}
-
-function hidden() {
     document.getElementById("paid").style.opacity = "0%";
+    box_coin = [];
+    part++;
+    if (part >= coin.length) part = 0;
+
+    coin = GameData[part].coins;
+    productName = GameData[part].product;
+    window.setTimeout(loadDb, 1000);
 }
 // Animation when next Game
-
 function animationWhenWin(elem, top) {
     var pos_top = elem.offsetTop;
-    var pre_top = pos_top;
     var value_top = 3;
     var id = setInterval(frame, 1);
 
     function frame() {
         if (pos_top == top) {
             elem.style.top = 0 + "px";
-
             clearInterval(id);
         } else {
-            if (pos_top < top) {
-                pos_top += value_top;
-            }
-            if (pos_top > top) {
-                pos_top -= value_top;
-            }
+            pos_top += value_top;
             if (pos_top > top - value_top && pos_top < top + value_top) pos_top = top;
             elem.style.top = pos_top + "px";
         }
     }
-
 }
 
+function RemoveDataTurnGame() {
+    var tag = document.getElementById("drop-coin")
+    tag.innerHTML = ""
 
+    var product = document.getElementById("product");
+    product.removeChild(thing)
+
+    var task = document.getElementById("task-" + (part + 1));
+    task.style.backgroundColor = "green";
+}
 
 function moveBoxDrop() {
     var drop = document.getElementById('drop');
+    var product = document.getElementById("product")
     animationWhenWin(drop, 600);
-
+    animationWhenWin(product, 600)
+}
+// Check Collision
+function checkCollision(top, left, frame) {
+    return (left >= frame.offsetLeft && left <= frame.offsetWidth + frame.offsetLeft &&
+        top >= frame.offsetTop && top <= frame.offsetTop + frame.offsetHeight)
 }

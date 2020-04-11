@@ -1,52 +1,30 @@
 var coins = [
-    [{ id: 1, number: 1, position: { left: 50, top: 100 } },
-        { id: 2, number: 5, position: { left: 100, top: 300 } },
-        { id: 3, number: 3, position: { left: 400, top: 350 } },
-        { id: 4, number: 2, position: { left: 500, top: 170 } },
-        { id: 5, number: 5, position: { left: 700, top: 350 } },
-        { id: 6, number: 5, position: { left: 600, top: 50 } },
-        { id: 7, number: 5, position: { left: 300, top: 180 } },
-        { id: 8, number: 7, position: { left: 300, top: 0 } },
-        { id: 9, number: 8, position: { left: -100, top: 200 } },
-        { id: 10, number: 9, position: { left: 800, top: 150 } }
+    [{ id: 1, number: 1, position: { left: 50, top: 100 } }, { id: 2, number: 5, position: { left: 100, top: 300 } },
+        { id: 3, number: 3, position: { left: 400, top: 350 } }, { id: 4, number: 2, position: { left: 500, top: 170 } },
+        { id: 5, number: 5, position: { left: 700, top: 350 } }, { id: 6, number: 5, position: { left: 600, top: 50 } },
+        { id: 7, number: 5, position: { left: 300, top: 180 } }, { id: 8, number: 7, position: { left: 300, top: 0 } },
+        { id: 9, number: 8, position: { left: -100, top: 200 } }, { id: 10, number: 9, position: { left: 800, top: 150 } }
     ],
-    [{ id: 1, number: 1, position: { left: 800, top: 150 } },
-        { id: 2, number: 5, position: { left: 100, top: 300 } },
-        { id: 3, number: 8, position: { left: 0, top: 70 } },
-        { id: 4, number: 5, position: { left: 700, top: 350 } },
-        { id: 5, number: 3, position: { left: 500, top: 300 } },
-        { id: 6, number: 9, position: { left: 300, top: 250 } },
-        { id: 7, number: 2, position: { left: 400, top: 50 } },
-        { id: 8, number: 7, position: { left: -100, top: 200 } },
+    [{ id: 1, number: 1, position: { left: 800, top: 150 } }, { id: 2, number: 5, position: { left: 100, top: 300 } },
+        { id: 3, number: 8, position: { left: 0, top: 70 } }, { id: 4, number: 5, position: { left: 700, top: 350 } },
+        { id: 5, number: 3, position: { left: 500, top: 300 } }, { id: 6, number: 9, position: { left: 300, top: 250 } },
+        { id: 7, number: 2, position: { left: 400, top: 50 } }, { id: 8, number: 7, position: { left: -100, top: 200 } },
     ],
-    [{ id: 1, number: 9, position: { left: 100, top: 0 } },
-        { id: 2, number: 7, position: { left: 100, top: 300 } },
-        { id: 3, number: 3, position: { left: 500, top: 170 } },
-        { id: 4, number: 5, position: { left: 700, top: 350 } },
-        { id: 5, number: 6, position: { left: -150, top: 250 } },
-        { id: 6, number: 4, position: { left: 300, top: 180 } },
-        { id: 7, number: 5, position: { left: 400, top: 0 } },
-        { id: 8, number: 8, position: { left: 0, top: 100 } },
-        { id: 9, number: 2, position: { left: 500, top: 350 } },
-        { id: 10, number: 1, position: { left: 700, top: 150 } }
+    [{ id: 1, number: 9, position: { left: 100, top: 0 } }, { id: 2, number: 7, position: { left: 100, top: 300 } },
+        { id: 3, number: 3, position: { left: 500, top: 170 } }, { id: 4, number: 5, position: { left: 700, top: 350 } },
+        { id: 5, number: 6, position: { left: -150, top: 250 } }, { id: 6, number: 4, position: { left: 300, top: 180 } },
+        { id: 7, number: 5, position: { left: 400, top: 0 } }, { id: 8, number: 8, position: { left: 0, top: 100 } },
+        { id: 9, number: 2, position: { left: 500, top: 350 } }, { id: 10, number: 1, position: { left: 700, top: 150 } }
     ],
-    [{ id: 1, number: 7, position: { left: 100, top: 0 } },
-        { id: 2, number: 3, position: { left: 100, top: 300 } },
-        { id: 3, number: 1, position: { left: 500, top: 170 } },
-        { id: 4, number: 9, position: { left: 700, top: 350 } },
-        { id: 5, number: 5, position: { left: 600, top: 0 } },
-        { id: 6, number: 5, position: { left: 300, top: 180 } },
+    [{ id: 1, number: 7, position: { left: 100, top: 0 } }, { id: 2, number: 3, position: { left: 100, top: 300 } },
+        { id: 3, number: 1, position: { left: 500, top: 170 } }, { id: 4, number: 9, position: { left: 700, top: 350 } },
+        { id: 5, number: 5, position: { left: 600, top: 0 } }, { id: 6, number: 5, position: { left: 300, top: 180 } },
     ],
-    [{ id: 1, number: 1, position: { left: 0, top: 0 } },
-        { id: 2, number: 9, position: { left: 100, top: 300 } },
-        { id: 3, number: 3, position: { left: 500, top: 170 } },
-        { id: 4, number: 6, position: { left: 700, top: 350 } },
-        { id: 5, number: 7, position: { left: 600, top: 0 } },
-        { id: 6, number: 5, position: { left: 350, top: 280 } },
-        { id: 7, number: 5, position: { left: 400, top: 0 } },
-        { id: 8, number: 8, position: { left: 200, top: 100 } },
-        { id: 9, number: 4, position: { left: 700, top: 150 } },
-        { id: 10, number: 2, position: { left: 700, top: 150 } }
+    [{ id: 1, number: 1, position: { left: 0, top: 0 } }, { id: 2, number: 9, position: { left: 100, top: 300 } },
+        { id: 3, number: 3, position: { left: 500, top: 170 } }, { id: 4, number: 6, position: { left: 700, top: 350 } },
+        { id: 5, number: 7, position: { left: 600, top: 0 } }, { id: 6, number: 5, position: { left: 350, top: 280 } },
+        { id: 7, number: 5, position: { left: 400, top: 0 } }, { id: 8, number: 8, position: { left: 200, top: 100 } },
+        { id: 9, number: 4, position: { left: 700, top: 150 } }, { id: 10, number: 2, position: { left: 700, top: 150 } }
     ]
 ]
 
@@ -57,7 +35,6 @@ function loadDb() {
 }
 
 function loadCoin() {
-    var a = document.getElementById("coins");
     var a = document.getElementById("coins");
     var listCoin = coins[part];
     for (var i = 0; i < listCoin.length; i++) {
@@ -81,20 +58,18 @@ function dragElement(elmnt, top, left) {
         pos4 = 0;
     var top_elm = elmnt.offsetTop;
     var left_elm = elmnt.offsetLeft;
-    /* otherwise, move the DIV from anywhere inside the DIV:*/
+
     elmnt.onmousedown = dragMouseDown;
     var tagCollision = elmnt;
 
     function dragMouseDown(e) {
         e = e || window.event;
         e.preventDefault();
-        // get the mouse cursor position at startup:
+
         pos3 = e.clientX;
         pos4 = e.clientY;
         document.onmouseup = closeDragElement;
-        // call a function whenever the cursor moves:
         document.onmousemove = elementDrag;
-
     }
 
     function elementDrag(e) {
@@ -119,8 +94,6 @@ function dragElement(elmnt, top, left) {
         elmnt.style.zIndex = '1';
         if (HandleDropElement(elmnt, top, left) == -1) MoveCoin(elmnt, top, left);
         HandleInCollisionOut(tagCollision);
-        // MoveCoin(elmnt, top, left);
-
     }
 }
 
@@ -172,22 +145,14 @@ function CheckElementCollision(element) {
             var tag = document.getElementById(listCoin[i].id);
             if (checkCollision(element, tag)) {
                 res = tag;
-                HandleInCollision(tag);
+                tag.classList.add("hight-blue");
             } else {
-                HandleInCollisionOut(tag);
+                tag.className = "coin";
             }
         }
     }
 
     return res;
-}
-
-function HandleInCollision(element) {
-    element.classList.add("hight-blue");
-}
-
-function HandleInCollisionOut(element) {
-    element.className = "coin";
 }
 
 // Handle Drop 
@@ -219,166 +184,75 @@ function HandleDropElement(element, top_elm, left_elm) {
             child.classList.add("True");
             DelayTrue(500, element, tag, child);
         } else {
-            // child.classList.add("active");
-
             child.classList.add("Wrong");
             DelayFalse(500, element, tag, child, top_elm, left_elm);
         }
         parent.appendChild(child);
-
     }
     return found;
 }
 
 function DelayFalse(time, element, tag, child, top_elm, left_elm) {
-    var pos = 1;
-    var id = setInterval(func, 5);
     var parent = document.getElementById("coins");
-
-    function func() {
-        if (pos == time) {
-            element.style.opacity = '1'
-            tag.style.opacity = '1';
-            parent.removeChild(child);
-            MoveCoin(element, top_elm, left_elm);
-            clearInterval(id);
-        } else {
-            pos += 1;
-        }
-    }
+    window.setTimeout(() => {
+        element.style.opacity = '1'
+        tag.style.opacity = '1';
+        tag.className = "coin";
+        parent.removeChild(child);
+        MoveCoin(element, top_elm, left_elm);
+    }, 2000);
 }
 
 function DelayTrue(time, element, tag, child) {
-    var pos = 1;
-    var id = setInterval(func, 5);
+
     var parent = document.getElementById("coins");
+    var ray = document.getElementById("ray");
+    var ufo = document.getElementById("ufo");
 
-    function func() {
-        if (pos == time) {
-            ArrayCoinRemove(tag, element);
-            parent.removeChild(tag);
-            parent.removeChild(element);
-
-            MoveCoin(child, 30, 190);
-            DelayUFO(500, child);
-            clearInterval(id);
-        } else {
-            pos += 1;
-        }
-    }
+    window.setTimeout(() => {
+        ArrayCoinRemove(tag, element);
+        parent.removeChild(tag);
+        parent.removeChild(element);
+        MoveCoin(child, 30, 190);
+    }, 1000)
+    window.setTimeout(() => {
+        ray.style.opacity = '1';
+        ray.style.zIndex = '10';
+        ufo.style.animationName = "StaticUFO"
+    }, 4000)
+    window.setTimeout(() => {
+        ray.style.opacity = '0';
+        ufo.style.animationName = "moveUFO";
+        child.style.animationName = "moveCoinToUFO";
+        nextGame();
+    }, 5000);
+    window.setTimeout(() => {
+        parent.removeChild(child);
+    }, 7000);
 }
 
 function ArrayCoinRemove(elmnt, tag) {
     var listCoin = coins[part];
     var id = parseInt(elmnt.id);
-    var top = elmnt.offsetTop;
-    var left = elmnt.offsetLeft;
+
     var found = listCoin.findIndex(function(obj) {
         return parseInt(obj.id) == id;
     });
-    if (found != -1) {
-        listCoin.splice(found, 1);
-    }
+    listCoin.splice(found, 1);
     id = parseInt(tag.id);
-    top = tag.offsetTop;
-    left = tag.offsetLeft;
     found = listCoin.findIndex(function(obj) {
         return parseInt(obj.id) == id;
     });
-    if (found != -1) {
-        listCoin.splice(found, 1);
-    }
+    listCoin.splice(found, 1);
 }
-
-function Delay(child) {
-    var pos = 1;
-    var id = setInterval(func, 5);
-    var parent = document.getElementById("coins");
-    var ray = document.getElementById("ray");
-    var ufo = document.getElementById("ufo");
-
-    function func() {
-        if (pos == 200) {
-            ray.style.opacity = '0';
-
-        }
-        if (pos == 250) {
-            // parent.removeChild(child);
-            child.style.animationName = "moveCoinToUFO";
-            DelayRemoveChild(child);
-
-        }
-        if (pos == 500) {
-            ufo.style.animationName = "moveUFO";
-            nextGame();
-            clearInterval(id);
-
-        } else {
-            pos += 1;
-        }
-    }
-
-}
-
-function DelayRemoveChild(child) {
-    var pos = 1;
-    var id = setInterval(func, 5);
-    var parent = document.getElementById("coins");
-
-    function func() {
-        if (pos == 300) {
-            parent.removeChild(child);
-            clearInterval(id);
-
-        } else {
-            pos += 1;
-        }
-    }
-}
-
-function DelayUFO(time, child) {
-    var pos = 1;
-    var id = setInterval(func, 5);
-    var ray = document.getElementById("ray");
-    var ufo = document.getElementById("ufo");
-
-    function func() {
-        if (pos == time) {
-            ray.style.opacity = '1';
-            ray.style.zIndex = '10';
-            ufo.style.animationName = "StaticUFO"
-
-            Delay(child);
-            clearInterval(id);
-        } else {
-            pos += 1;
-        }
-    }
-}
-
 //nextGame()
 function nextGame() {
     var listCoin = coins[part];
     if (listCoin.length == 0) {
-
         part++;
         if (part >= coins.length) part = 0;
-        DelayNextGame(300);
+        window.setTimeout(loadDb, 2000);
         console.log(part);
         document.getElementById("task-" + (part)).style.backgroundColor = "yellow";
-    }
-}
-
-function DelayNextGame(time) {
-    var pos = 1;
-    var id = setInterval(func, 5);
-
-    function func() {
-        if (pos == time) {
-            loadDb();
-            clearInterval(id);
-        } else {
-            pos += 1;
-        }
     }
 }
