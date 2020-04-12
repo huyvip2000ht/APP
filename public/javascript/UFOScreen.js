@@ -222,14 +222,19 @@ function DelayTrue(time, element, tag, child) {
         ufo.style.animationName = "StaticUFO"
     }, 4000)
     window.setTimeout(() => {
-        ray.style.opacity = '0';
-        ufo.style.animationName = "moveUFO";
         child.style.animationName = "moveCoinToUFO";
         nextGame();
     }, 5000);
     window.setTimeout(() => {
+        ray.style.opacity = '0';
+        ufo.style.animationName = "moveUFO";
+    }, 7000);
+    window.setTimeout(() => {
         parent.removeChild(child);
     }, 7000);
+    window.setTimeout(() => {
+        nextGame()
+    }, 8000);
 }
 
 function ArrayCoinRemove(elmnt, tag) {

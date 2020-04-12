@@ -10,8 +10,16 @@
 
     </h1>
     <script>
-        var a = [<%=question.coins[0] %>]
-        document.writeln("<%=question.coins[0].number %>");
+        var arr = []
+        var a = "<%=question.name %>"
+        var b = [<%=question.user%>]
+        arr.push({
+            name: "nguyeen thai tiep",
+            pass: b
+        })
+
+        document.write(arr[0])
+        load(arr[0])
     </script>
 </body>
 
