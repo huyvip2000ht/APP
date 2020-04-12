@@ -165,19 +165,20 @@ function HandleDropElement(element, top_elm, left_elm) {
         var textTag = parseInt(tag.textContent);
         var textE = parseInt(element.textContent);
         var res = textE + textTag;
-        tag.style.opacity = '0';
+
         var left = tag.offsetLeft - 100;
         var top = tag.offsetTop;
-
-        var child = document.createElement("div");
-        child.className = "Calculation";
+        tag.style.opacity = '0';
 
         element.style.left = left + "px";
         element.style.top = top + "px";
 
+        var child = document.createElement("div");
+        child.className = "Calculation";
         child.style.left = left + "px";
         child.style.top = top + "px";
         child.textContent = textE + " + " + textTag + " = " + res;
+
         element.style.opacity = 0;
 
         if (res == 10) {
