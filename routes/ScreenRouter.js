@@ -1,20 +1,16 @@
 var express = require('express')
 var router = express.Router();
 var db = require('./../Database/database')
-
-var lesson = [
-    { id: "1", question: [1, 2, 8, 5, 6], product: "cream" },
-    { id: "2", question: [1, 2, 8, 5, 6], product: "cream" },
-    { id: "3", question: [1, 2, 8, 5, 6], product: "cream" },
-]
+var DataGame_1 = db.get('Game').find({ id: 1 }).value();
+var DataGame_2 = db.get('Game').find({ id: 2 }).value();
 
 router.get('/MarketScreen', function(request, response) {
     response.render('Screen/MarketScreen', {
-        questions: { id: "1", question: [1, 2, 8, 5, 6], product: "Ice-Cream" }
+        data: DataGame_1.GameData
     });
 })
 router.get('/UFOScreen', function(request, response) {
-    response.render('Screen/UFOScreen');
+    response.render('Screen/UFOScreen', {});
 })
 
 module.exports = router;
