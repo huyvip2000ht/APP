@@ -22,6 +22,10 @@ app.use('/public', express.static('./public'))
 app.get('/', function(request, response) {
     response.render('Home');
 })
+app.get('/Login', function(request, response)
+{
+    response.render('Login');
+})
 
 app.listen(port, function() {
     console.log("Server is listening port " + port);
