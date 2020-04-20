@@ -1,0 +1,21 @@
+body {
+    background-image: url('./../image/home.png');
+    background-size: cover;
+}
+
+#register {
+    margin-top: 10%;
+    margin-left: 34%;
+    width: 500px;
+    border: gray 1px solid;
+    height: 500px;
+    box-shadow: 3px 3px 3px 3px gray;
+    border-radius: 25px;
+    background-color: pink;
+}
+
+#create {
+    margin-left: 40%;
+    bottom: 10px;
+    background-color: indianred;
+}
