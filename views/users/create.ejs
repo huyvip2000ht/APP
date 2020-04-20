@@ -1,26 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <script src="./../../public/javascript/home.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./../../public/StyleSheets/create.css">
+    <title>Math Learning : Register</title>
 </head>
 
 <body>
-    <h1>
+    <div class="container-fluid " id="register">
+        <form action="/create" method="POST" role="form" class="form-create">
+            <legend class="text-center">
+                <h1>Registration</h1>
+            </legend>
+            <% for(var i=0; i < errArr.length; i++) { %>
+                <div class=" form-group alert alert-danger" role="alert">
+                    <%=errArr[i] %>
+                </div>
+                <% } %>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input name="name" type="text" class="form-control" id="" placeholder="David Beckham">
+                        <label for="email">Email</label>
+                        <input name="email" type="email" class="form-control" id="" placeholder="A@gmail.com">
 
-    </h1>
-    <script>
-        var arr = []
-        var a = "<%=question.name %>"
-        var b = [<%=question.user%>]
-        arr.push({
-            name: "nguyeen thai tiep",
-            pass: b
-        })
+                        <label for="password">Password</label>
+                        <input name="password" type="password" class="form-control" id="" placeholder="123456">
+                        <label for="Career">Career</label>
+                        <select name="career" class="form-control" id="sel1">
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>>
+                        </select>
 
-        document.write(arr[0])
-        load(arr[0])
-    </script>
+                    </div>
+
+                    <button type="submit" id="create" class="btn btn-success">register</button>
+        </form>
+
+    </div>
 </body>
 
 </html>

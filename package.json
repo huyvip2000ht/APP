@@ -18,11 +18,14 @@
     },
     "homepage": "https://github.com/NguyenThaiTiep/APP#readme",
     "dependencies": {
+        "body-parser": "^1.19.0",
         "bootstrap": "^4.4.1",
+        "cookie-parser": "^1.4.5",
+        "cookie-session": "^1.4.0",
         "ejs": "^3.0.2",
         "express": "^4.17.1",
-        "lowdb": "^1.0.0",
-        "nodemon": "^2.0.2",
-        "short-id": "0.1.0-1"
+        "local-storage": "^2.0.0",
+        "mysql": "^2.18.1",
+        "nodemon": "^2.0.2"
     }
 }

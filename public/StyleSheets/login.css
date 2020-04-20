@@ -1,0 +1,28 @@
+body {
+    background-image: url('./../image/home.png');
+    background-size: cover;
+}
+
+#login {
+    margin-top: 10%;
+    margin-left: 34%;
+    width: 500px;
+    border: gray 1px solid;
+    height: 400px;
+    box-shadow: 3px 3px 3px 3px gray;
+    border-radius: 25px;
+    background-color: pink;
+}
+
+#loginbutton {
+    margin-left: 40%;
+    width: 20%;
+    background-color: royalblue;
+}
+
+#create {
+    margin-left: 37%;
+    width: 20%;
+    bottom: 10px;
+    position: absolute;
+}
