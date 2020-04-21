@@ -292,6 +292,7 @@ function sumBoxCoin() {
 /* Set up next Game when you win */
 function nextGame() {
     document.getElementById("paid").style.opacity = "0%";
+    document.getElementById("drop-bg").style.backgroundColor = "";
     box_coin = [];
     part++;
     if (part >= coin.length) part = 0;
