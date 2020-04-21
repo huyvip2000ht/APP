@@ -13,7 +13,6 @@ app.use(bodyParser.json())
 app.use(cookieParser());
 
 const port = 8080;
-const nameApp = "Math Learning"
 
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -25,9 +24,6 @@ app.use('/screen', ScreenRoute)
 
 app.use('/public', express.static('./public'))
 app.use('/', AuthRoute);
-
-
-
 
 app.listen(port, function() {
     console.log("Server is listening port " + port);

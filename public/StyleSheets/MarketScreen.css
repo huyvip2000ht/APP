@@ -8,7 +8,8 @@ body {
 /* set up to coin */
 
 .coin {
-    background-image: url("./../../public//image//Game-2/number.png");
+    background-image: url("./../../public/image/Game-2/number.png");
+    /* -repeat: no-repeat; */
     background-repeat: no-repeat;
     position: absolute;
     cursor: grab;

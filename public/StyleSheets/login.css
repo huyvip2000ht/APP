@@ -8,7 +8,7 @@ body {
     margin-left: 34%;
     width: 500px;
     border: gray 1px solid;
-    height: 400px;
+    height: 420px;
     box-shadow: 3px 3px 3px 3px gray;
     border-radius: 25px;
     background-color: pink;
@@ -22,7 +22,7 @@ body {
 
 #create {
     margin-left: 37%;
+    bottom: 50px;
     width: 20%;
-    bottom: 10px;
     position: absolute;
 }
