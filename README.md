@@ -1,4 +1,4 @@
-# APP
+# Math Learning
 ## Made by Group 88
 1. Nguyễn Thái Tiệp 
 2. Vũ Tố Uyên
