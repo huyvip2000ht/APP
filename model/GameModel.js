@@ -16,3 +16,6 @@ module.exports.getMark = (req, res) => {
     res.render('Screen/MarketScreen', {});
 
 }
+module.exports.win = (req, res) => {
+    res.render('Screen/Win', {});
+}

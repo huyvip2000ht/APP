@@ -6,37 +6,37 @@ var part = 0;
 var position_coinInBox = [{ left: 30, top: 270 }, { left: 260, top: 270 }, { left: 30, top: 450 }, { left: 130, top: 270 }, { left: 130, top: 350 }, { left: 130, top: 440 }, { left: 30, top: 350 }, { left: 230, top: 350 }, { left: 230, top: 450 }]
 
 var GameData = [{
-            coins: [{ number: 1, left: 30, top: 270 }, { number: 7, left: 30, top: 450 },
-                { number: 5, left: 130, top: 250 }, { number: 6, left: 130, top: 450 },
-                { number: 3, left: 230, top: 450 }, { number: 4, left: 30, top: 350 }
+            coins: [{ number: 1, left: 130, top: 270 }, { number: 7, left: 130, top: 450 },
+                { number: 5, left: 230, top: 250 }, { number: 6, left: 230, top: 450 },
+                { number: 3, left: 330, top: 450 }, { number: 4, left: 130, top: 350 }
             ],
             product: "lollipop"
         },
         {
-            coins: [{ number: 1, left: 30, top: 270 }, { number: 9, left: 30, top: 450 },
-                { number: 4, left: 130, top: 270 }, { number: 7, left: 130, top: 350 },
-                { number: 3, left: 230, top: 450 }
+            coins: [{ number: 1, left: 130, top: 270 }, { number: 9, left: 130, top: 450 },
+                { number: 4, left: 230, top: 270 }, { number: 7, left: 230, top: 350 },
+                { number: 3, left: 330, top: 450 }
             ],
             product: "Ice-Cream"
         },
         {
-            coins: [{ number: 1, left: 30, top: 270 }, { number: 5, left: 30, top: 450 },
-                { number: 6, left: 130, top: 270 }, { number: 2, left: 230, top: 360 }, { number: 9, left: 350, top: 350 },
-                { number: 3, left: 230, top: 450 }, { number: 4, left: 30, top: 350 }
+            coins: [{ number: 1, left: 130, top: 270 }, { number: 5, left: 130, top: 450 },
+                { number: 6, left: 230, top: 270 }, { number: 2, left: 330, top: 360 }, { number: 9, left: 450, top: 350 },
+                { number: 3, left: 330, top: 450 }, { number: 4, left: 130, top: 350 }
             ],
             product: "lollipop"
         },
         {
-            coins: [{ number: 5, left: 30, top: 270 }, { number: 3, left: 30, top: 450 },
-                { number: 6, left: 130, top: 270 }, { number: 4, left: 270, top: 350 },
-                { number: 9, left: 130, top: 450 }
+            coins: [{ number: 5, left: 130, top: 270 }, { number: 3, left: 130, top: 450 },
+                { number: 6, left: 230, top: 270 }, { number: 4, left: 370, top: 350 },
+                { number: 9, left: 230, top: 450 }
             ],
             product: "Ice-Cream"
         },
         {
-            coins: [{ number: 1, left: 30, top: 270 }, { number: 5, left: 30, top: 450 },
-                { number: 6, left: 130, top: 270 }, { number: 9, left: 130, top: 450 },
-                { number: 3, left: 230, top: 450 }, { number: 4, left: 30, top: 350 }
+            coins: [{ number: 1, left: 130, top: 270 }, { number: 5, left: 130, top: 450 },
+                { number: 6, left: 230, top: 270 }, { number: 9, left: 230, top: 450 },
+                { number: 3, left: 330, top: 450 }, { number: 4, left: 130, top: 350 }
             ],
             product: "Ice-Cream"
         }
@@ -290,12 +290,20 @@ function sumBoxCoin() {
     return sum;
 }
 /* Set up next Game when you win */
+function redirect() {
+    window.location = "http://localhost:3000/screen/win"
+}
+
 function nextGame() {
     document.getElementById("paid").style.opacity = "0%";
     document.getElementById("drop-bg").style.backgroundColor = "";
     box_coin = [];
     part++;
-    if (part >= coin.length) part = 0;
+    if (part >= GameData.length) {
+        part = 0;
+        window.setTimeout(redirect, 1000);
+        return;
+    }
 
     coin = GameData[part].coins;
     productName = GameData[part].product;
