@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 var bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser');
 var app = express()
@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cookieParser());
 
-const port = 8080;
+const port = 3000;
 
 app.set('view engine', 'ejs')
 app.set('views', './views')

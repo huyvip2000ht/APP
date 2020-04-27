@@ -93,7 +93,7 @@ function dragElement(elmnt, top, left) {
         document.onmousemove = null;
         elmnt.style.zIndex = '1';
         if (HandleDropElement(elmnt, top, left) == -1) MoveCoin(elmnt, top, left);
-        HandleInCollisionOut(tagCollision);
+        // HandleInCollisionOut(tagCollision);
     }
 }
 
@@ -252,11 +252,21 @@ function ArrayCoinRemove(elmnt, tag) {
     listCoin.splice(found, 1);
 }
 //nextGame()
+function redirect() {
+    window.location = "http://localhost:3000/screen/win"
+    console.log(window.location);
+    console.log('ihi')
+}
+
 function nextGame() {
     var listCoin = coins[part];
     if (listCoin.length == 0) {
         part++;
-        if (part >= coins.length) part = 0;
+        if (part >= coins.length) {
+            part = 0;
+            window.setTimeout(redirect, 4000);
+            return;
+        };
         window.setTimeout(loadDb, 2000);
         console.log(part);
         document.getElementById("task-" + (part)).style.backgroundColor = "yellow";
