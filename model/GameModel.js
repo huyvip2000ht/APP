@@ -12,7 +12,6 @@ module.exports.getMark = (req, res) => {
     if (!ls.get('name')) {
         res.redirect('/login');
     }
-    console.log(ls.get('name'))
     res.render('Screen/MarketScreen', {});
 
 }

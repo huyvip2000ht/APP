@@ -6,7 +6,7 @@
     "scripts": {
         "lint": "eslint app",
         "start": "nodemon app",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "mocha test/testJS.game.js"
     },
     "repository": {
         "type": "git",
@@ -21,14 +21,20 @@
     "dependencies": {
         "body-parser": "^1.19.0",
         "bootstrap": "^4.4.1",
+        "chai": "^4.2.0",
         "cookie-parser": "^1.4.5",
         "cookie-session": "^1.4.0",
         "ejs": "^3.0.2",
-        "eslint": "^6.8.0",
         "express": "^4.17.1",
+        "jquery": "^3.5.0",
         "local-storage": "^2.0.0",
         "md5": "^2.2.1",
+        "mocha": "^7.1.2",
+        "mocha-jsdom": "^2.0.0",
         "mysql": "^2.18.1",
         "nodemon": "^2.0.2"
+    },
+    "devDependencies": {
+        "mock-local-storage": "^1.1.12"
     }
 }
