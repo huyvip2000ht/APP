@@ -1,4 +1,4 @@
-const db = require('./../Database/database')
+var db = require('./../Database/database')
 const ls = require('local-storage')
 const md5 = require('md5');
 module.exports.loginGet = (req, res) => {

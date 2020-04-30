@@ -31,11 +31,17 @@ var coins = [
 var part = 0;
 // load database and coin
 function loadDb() {
-    loadCoin();
+    var tagHTML = loadTag();
+    loadCoin(tagHTML.coinsTag, part, coins);
 }
 
-function loadCoin() {
-    var a = document.getElementById("coins");
+function loadTag() {
+    var tagHTML = {};
+    tagHTML.coinsTag = document.getElementById("coins");
+    return tagHTML;
+}
+
+function loadCoin(coinsTag, part, coins) {
     var listCoin = coins[part];
     for (var i = 0; i < listCoin.length; i++) {
         var top = listCoin[i].position.top;
@@ -47,8 +53,9 @@ function loadCoin() {
         tag.style.top = top + "px";
         tag.id = listCoin[i].id;
         dragElement(tag, top, left);
-        a.appendChild(tag);
+        coinsTag.appendChild(tag);
     }
+    return coinsTag.childElementCount;
 }
 // set up drag and drop for coin
 function dragElement(elmnt, top, left) {
@@ -164,7 +171,7 @@ function HandleDropElement(element, top_elm, left_elm) {
         found = 1;
         var textTag = parseInt(tag.textContent);
         var textE = parseInt(element.textContent);
-        var res = textE + textTag;
+        var res = CalculationResult(textE, textTag);
 
         var left = tag.offsetLeft - 100;
         var top = tag.offsetTop;
@@ -202,6 +209,10 @@ function DelayFalse(time, element, tag, child, top_elm, left_elm) {
         parent.removeChild(child);
         MoveCoin(element, top_elm, left_elm);
     }, 2000);
+}
+
+function CalculationResult(numberA, numberB) {
+    return numberA + numberB;
 }
 
 function DelayTrue(time, element, tag, child) {
@@ -272,3 +283,4 @@ function nextGame() {
         document.getElementById("task-" + (part)).style.backgroundColor = "yellow";
     }
 }
+module.exports = { loadCoin, loadTag, checkCollision, CalculationResult }

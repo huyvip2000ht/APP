@@ -1,9 +1,7 @@
-// const db = require('./../../Database/database')
-// var GameDataBase = db.get("Game").find({ id: 1 }).value();
-// var GameData = GameDataBase.GameData;
 var box_coin = [];
 var part = 0;
 var position_coinInBox = [{ left: 30, top: 270 }, { left: 260, top: 270 }, { left: 30, top: 450 }, { left: 130, top: 270 }, { left: 130, top: 350 }, { left: 130, top: 440 }, { left: 30, top: 350 }, { left: 230, top: 350 }, { left: 230, top: 450 }]
+
 
 var GameData = [{
             coins: [{ number: 1, left: 130, top: 270 }, { number: 7, left: 130, top: 450 },
@@ -46,25 +44,38 @@ var coin = []
 var productName;
 
 function loadGame() {
-    loadData();
+    loadData(GameData, part);
     loadDb();
 }
 
 function loadDb() {
-    loadCoin();
-    loadProduct();
-    SetupDragCoin();
+    var tagHTML = loadTag();
+    loadCoin(tagHTML.tagCoinList, coin);
+    loadProduct(tagHTML.product, tagHTML.productNameTag);
+    SetupDragCoin(tagHTML);
     SetUpButtonEvent();
 }
 /* Load Coin when you join game or next game*/
-function loadData() {
+function loadData(GameData, part) {
     // GameData = Data;
     coin = GameData[part].coins;
     productName = GameData[part].product;
+    return {
+        coins: coin,
+        product: productName
+    }
 }
 
-function loadCoin() {
-    var parents = document.getElementById("drop-coin");
+function loadTag() {
+    var tagHTML = {};
+    tagHTML.product = document.getElementById("product");
+    tagHTML.tagCoinList = document.getElementById("drop-coin");
+    tagHTML.productNameTag = document.getElementById("nameProduct");
+    tagHTML.frame = document.getElementById("drop");
+    return tagHTML;
+}
+
+function loadCoin(tagCoinList, coin) {
 
     for (var i = 0; i < coin.length; i++) {
         var tag = document.createElement("div");
@@ -72,25 +83,23 @@ function loadCoin() {
         tag.id = i + 1;
         tag.style.top = coin[i].top + "px";
         tag.style.left = coin[i].left + "px";
-        parents.appendChild(tag);
+        tagCoinList.appendChild(tag);
     }
+    return tagCoinList.childElementCount;
 }
 
-function loadProduct() {
-    var product = document.getElementById("product");
+function loadProduct(product, productNameTag) {
     var tag = document.createElement("img");
     tag.src = "./../../public/image/Game-2/" + productName + ".png";
     tag.id = "thing";
     tag.draggable = false;
     tag.className = "product-img"
     product.appendChild(tag);
-
-    var productNameTag = document.getElementById("nameProduct");
     productNameTag.innerHTML = productName;
 }
 
 /* Set up drag and drop coin*/
-function SetupDragCoin() {
+function SetupDragCoin(tagHTML) {
     for (var i = 1; i < 10; i++) {
         var tag = document.getElementById(i.toString());
 
@@ -143,7 +152,7 @@ function SetupDragCoin() {
             /* stop moving when mouse button is released:*/
             document.onmouseup = null;
             document.onmousemove = null;
-            addCoinIntoFrameBox(elmnt.offsetLeft, elmnt.offsetTop, id);
+            addCoinIntoFrameBox(elmnt.offsetLeft, elmnt.offsetTop, id, tagHTML.frame, coin, box_coin);
             setSlotForCoin(elmnt, elmnt.offsetTop, elmnt.offsetLeft, top_elm, left_elm, id);
             elmnt.style.zIndex = '8';
         }
@@ -162,8 +171,7 @@ function SetupDragCoin() {
     }
 }
 
-function addCoinIntoFrameBox(left, top, id) {
-    var frame = document.getElementById("drop");
+function addCoinIntoFrameBox(left, top, id, frame, coin, box_coin) {
     var value = coin[id - 1].number;
     if (checkCollision(top, left, frame)) {
         if (box_coin == null) box_coin.push(id);
@@ -184,6 +192,7 @@ function addCoinIntoFrameBox(left, top, id) {
         }
     }
     console.log("box" + box_coin)
+    return box_coin;
 }
 
 function setSlotForCoin(element, top, left, top_elm, left_elm, id) {
@@ -207,7 +216,7 @@ function SetUpButtonEvent() {
     function ButtonOnMouseDown() {
         var tag = document.getElementById("myBtn");
         var result = 10;
-        var sum = sumBoxCoin();
+        var sum = sumBoxCoin(box_coin);
         var flag;
         if (box_coin.length == 0 || (sum != result && sum != 0)) flag = 404;
         if (sum == result) flag = 200;
@@ -282,14 +291,14 @@ function MoveFirstPosition() {
 }
 
 /* check Result*/
-function sumBoxCoin() {
-    var sum = 0;
-    box_coin.forEach(element =>
-        sum += element
-    )
-    return sum;
-}
-/* Set up next Game when you win */
+var sumBoxCoin = (box_coin) => {
+        var sum = 0;
+        box_coin.forEach(element =>
+            sum += element
+        )
+        return sum;
+    }
+    /* Set up next Game when you win */
 function redirect() {
     window.location = "http://localhost:3000/screen/win"
 }
@@ -348,4 +357,7 @@ function moveBoxDrop() {
 function checkCollision(top, left, frame) {
     return (left >= frame.offsetLeft && left <= frame.offsetWidth + frame.offsetLeft &&
         top >= frame.offsetTop && top <= frame.offsetTop + frame.offsetHeight)
+
 }
+
+module.exports = { loadTag, loadCoin, checkCollision, sumBoxCoin, addCoinIntoFrameBox, loadData, myMove }
