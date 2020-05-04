@@ -15,14 +15,17 @@ body {
 }
 
 #loginbutton {
-    margin-left: 40%;
-    width: 20%;
-    background-color: royalblue;
+    margin-bottom: 5%;
+    margin-top: 5%;
 }
 
+
+/* 
 #create {
     margin-left: 37%;
     bottom: 50px;
     width: 20%;
     position: absolute;
-}
+} */
+
+@media only screen and (max-width: 1000px) {}
