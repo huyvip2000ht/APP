@@ -5,6 +5,6 @@
 chai
 mocha-jsdom````
 ### run
-``npm test``
+npm test
 
 ## E2E Test
