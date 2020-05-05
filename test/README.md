@@ -75,4 +75,4 @@ b) Test Game Market
 a ) Hình ảnh 
     <img src = "./E2ETest.PNG">
 b ) Video
-    [![IMAGE ALT TEXT HERE]("./tilte.PNG"))](./test_app_selenium.mp4)
+    [![IMAGE ALT TEXT HERE](./tilte.PNG))](https://jlpt-learning.herokuapp.com/file/video/upload_d6ea6a5e200e190c204c5fc089082ea6.mp4)
