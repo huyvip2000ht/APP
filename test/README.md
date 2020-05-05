@@ -20,18 +20,20 @@ b) Test Game Market
     - load Coin : loai coin khi vào màn chơi
     - load Tag HTML : Load các thẻ cần xứ lý
 2. Code
-        describe('Test Game Market', () => {
-            describe('Sum box Coin', () => {
 
-                it('checksum True', () => {
-                    var box_coin = [2, 3, 3];
-                    expect(codeMarket.sumBoxCoin(box_coin)).to.equal(8);
-                })
-                it('checksum False', () => {
-                    var box_coin = [2, 3, 3];
-                    expect(codeMarket.sumBoxCoin(box_coin)).to.not.equal(7);
-                })
+        describe('Test Game Market', () => {
+        
+             describe('Sum box Coin', () => {
+
+            it('checksum True', () => {
+                var box_coin = [2, 3, 3];
+                expect(codeMarket.sumBoxCoin(box_coin)).to.equal(8);
             })
+            it('checksum False', () => {
+                var box_coin = [2, 3, 3];
+                expect(codeMarket.sumBoxCoin(box_coin)).to.not.equal(7);
+            })
+        })
         })
 
 3. Kết quả
@@ -47,30 +49,31 @@ b) Test Game Market
  - Test game UFO 
  - Test game Market
  2. Code (minh hoạ)
-        describe('Suite Test Math learning', function() {
-            this.timeout(30000)
-            let driver
-            let vars
-            beforeEach(async function() {
-                driver = await new Builder().forBrowser('chrome').usingServer('http://localhost:4444/wd/hub').build()
-                vars = {}
-            })
-            afterEach(async function() {
-                await driver.quit();
-            })
-            it('test-open', async function() {
-                await driver.get("http://localhost:3000//")
-                await driver.manage().window().setRect(746, 824)
-                await driver.findElement(By.css(".btn")).click()
-            })
-            it('test-login-fail', async function() {
-                await driver.get("http://localhost:3000//login")
-                await driver.findElement(By.name("email")).sendKeys("nguyentiep132@gmail.com")
-                await driver.findElement(By.name("password")).sendKeys("1312311")
-                await driver.findElement(By.id("loginbutton")).click()
-                assert(await driver.findElement(By.css(".alert")).getText() == "Account Invalid")
-            })
-        })
+ 
+                    describe('Suite Test Math learning', function() {
+                        this.timeout(30000)
+                        let driver
+                        let vars
+                        beforeEach(async function() {
+                            driver = await new Builder().forBrowser('chrome').usingServer('http://localhost:4444/wd/hub').build()
+                            vars = {}
+                        })
+                        afterEach(async function() {
+                            await driver.quit();
+                        })
+                        it('test-open', async function() {
+                            await driver.get("http://localhost:3000//")
+                            await driver.manage().window().setRect(746, 824)
+                            await driver.findElement(By.css(".btn")).click()
+                        })
+                        it('test-login-fail', async function() {
+                            await driver.get("http://localhost:3000//login")
+                            await driver.findElement(By.name("email")).sendKeys("nguyentiep132@gmail.com")
+                            await driver.findElement(By.name("password")).sendKeys("1312311")
+                            await driver.findElement(By.id("loginbutton")).click()
+                            assert(await driver.findElement(By.css(".alert")).getText() == "Account Invalid")
+                        })
+                    })
 3. *Hình ảnh*
         <img src = "./E2ETest.PNG" size = "10">
 4. *Video*
