@@ -71,8 +71,7 @@ b) Test Game Market
                 assert(await driver.findElement(By.css(".alert")).getText() == "Account Invalid")
             })
         })
-3. Kết quả
-    a) *Hình ảnh*
-        <img src = "./E2ETest.PNG">
-    b) *Video*
+3. *Hình ảnh*
+        <img src = "./E2ETest.PNG" size = "10">
+4. *Video*
         [![IMAGE ALT TEXT HERE](./tilte.PNG))](https://jlpt-learning.herokuapp.com/file/video/upload_d6ea6a5e200e190c204c5fc089082ea6.mp4)
